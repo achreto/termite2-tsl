@@ -1,4 +1,4 @@
-{-# LANGUAGE ImplicitParams, RecordWildCards, TemplateHaskell, TupleSections, ConstraintKinds #-}
+{-# LANGUAGE ImplicitParams, RecordWildCards, TemplateHaskell, TupleSections, ConstraintKinds, FlexibleContexts #-}
 
 module CodeGen.CFG (Step(..),
             Branch(..),

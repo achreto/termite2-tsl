@@ -1,7 +1,7 @@
 -- Theory solver that uses bitvector library for existential quantification
 -- and SMTLib2 for satisfiability checking and unsat cores
 
-{-# LANGUAGE ImplicitParams, RecordWildCards, ConstraintKinds #-}
+{-# LANGUAGE ImplicitParams, RecordWildCards, ConstraintKinds, FlexibleContexts #-}
 
 module Solver.BVSMT(VarAsn(..),
              bvSolver,

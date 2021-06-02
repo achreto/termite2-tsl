@@ -1,4 +1,4 @@
-{-# LANGUAGE ImplicitParams, ScopedTypeVariables, RecordWildCards, TupleSections, ConstraintKinds #-}
+{-# LANGUAGE ImplicitParams, ScopedTypeVariables, RecordWildCards, TupleSections, ConstraintKinds, FlexibleContexts #-}
 
 module Abstract.TSLAbsGame(AbsPriv,
                   tslAbsGame, 

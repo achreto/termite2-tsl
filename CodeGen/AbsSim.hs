@@ -1,4 +1,4 @@
-{-# LANGUAGE ImplicitParams, RecordWildCards, TemplateHaskell, ConstraintKinds #-}
+{-# LANGUAGE ImplicitParams, RecordWildCards, TemplateHaskell, ConstraintKinds, FlexibleContexts #-}
 
 module CodeGen.AbsSim (CompiledMB,
                simulateCFAAbstractToLoc,
