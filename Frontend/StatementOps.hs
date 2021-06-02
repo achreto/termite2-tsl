@@ -13,8 +13,8 @@ module Frontend.StatementOps(mapStat,
                     statObjsRec,
                     methObjsRec,
                     statReturns) where
-
-import Control.Monad.Error
+import Prelude hiding ((<>))
+import Control.Monad.Except
 import Data.Maybe
 import qualified Data.Traversable as Tr
 

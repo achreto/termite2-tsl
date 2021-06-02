@@ -19,7 +19,8 @@ module TSLUtil(lines',
                sanitize,
                ppInt) where
 
-import Control.Monad.Error
+import Prelude hiding ((<>))
+import Control.Monad.Except
 import Control.Applicative
 import Data.List
 import Data.Maybe

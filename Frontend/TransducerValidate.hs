@@ -1,9 +1,9 @@
-{-# LANGUAGE ImplicitParams, TupleSections, RecordWildCards #-}
+{-# LANGUAGE ImplicitParams, TupleSections, RecordWildCards, FlexibleContexts #-}
 
 module Frontend.TransducerValidate(validateTxNS,validateTxImplementation2) where
 
 import Data.List
-import Control.Monad.Error
+import Control.Monad.Except
 import Data.Maybe
 
 import Util hiding (name)

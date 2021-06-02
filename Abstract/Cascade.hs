@@ -11,6 +11,8 @@ module Abstract.Cascade(Cascade(..),
                fcasToFormula,
                fcasPrune) where
 
+import Prelude hiding ((<>))
+
 import Control.Applicative
 import Data.List
 import Text.PrettyPrint

@@ -2,7 +2,7 @@
 
 module Frontend.ProcessOps(validateProc) where
 
-import Control.Monad.Error
+import Control.Monad.Except
 
 import TSLUtil
 import Name

@@ -2,7 +2,7 @@
 
 module Frontend.TVarOps(varMapExpr, varType) where
 
-import Control.Monad.Error
+import Control.Monad.Except
 
 import TSLUtil
 import Pos

@@ -7,8 +7,9 @@ module Frontend.Type(TypeSpec(BoolSpec,SIntSpec,UIntSpec,StructSpec,EnumSpec,Ptr
             Field(Field),
             arrLengthBits) where
 
+import Prelude hiding ((<>))
 import Text.PrettyPrint
-import Control.Monad.Error
+import Control.Monad.Except
 
 import PP
 import Pos

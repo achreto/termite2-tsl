@@ -4,7 +4,7 @@ module Frontend.Transducer(Transducer(Transducer, txInput, txOutput, txBody),
                            TxPort(TxPort, tpType, tpName),
                            TxPortRef(..),
                            TxInstance(TxInstance, tiTxName, tiInstName, tiInputs)) where
-
+import Prelude hiding ((<>))
 import Text.PrettyPrint
 
 import PP

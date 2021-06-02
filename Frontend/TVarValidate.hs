@@ -3,7 +3,7 @@
 module Frontend.TVarValidate(validateVar, 
                     validateVar2) where
 
-import Control.Monad.Error
+import Control.Monad.Except
 
 import TSLUtil
 import Frontend.Spec

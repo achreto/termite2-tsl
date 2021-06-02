@@ -6,7 +6,7 @@ module Frontend.SpecOps(specNamespace,
 
 import Data.List
 import Data.Maybe
-import Control.Monad.Error
+import Control.Monad.Except
 import Debug.Trace
 
 import TSLUtil

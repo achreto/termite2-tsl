@@ -28,7 +28,7 @@ import Data.List
 import Data.Maybe
 import Data.Tuple.Select
 import qualified Data.Map as M
-import Control.Monad.Error
+import Control.Monad.Except
 import Control.Applicative
 import Debug.Trace
 

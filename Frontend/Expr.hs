@@ -10,6 +10,7 @@ module Frontend.Expr(Expr(ETerm,ELit,EBool,EApply,EField,EPField,EIndex,ERange,E
             BOp(..),
             eAnd) where
 
+import Prelude hiding ((<>))
 import Text.PrettyPrint
 import Data.List
 import Data.Bits

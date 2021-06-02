@@ -3,7 +3,7 @@
 module Frontend.StatementValidate(validateStat,
                                   validateStat') where
 
-import Control.Monad.Error
+import Control.Monad.Except
 import Data.Maybe
 import Data.List
 

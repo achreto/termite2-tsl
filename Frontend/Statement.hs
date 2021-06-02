@@ -3,7 +3,7 @@ module Frontend.Statement(Statement(SVarDecl,SReturn,SSeq,SPar,SForever,SDo,
                            SAssert,SAssume,SAssign,SITE,SCase,SIn, SOut,SMagic,SMagExit,SDoNothing,stLab),
                  stmtVar,
                  sSeq) where
-
+import Prelude hiding ((<>))
 import Data.Maybe
 import Text.PrettyPrint
 

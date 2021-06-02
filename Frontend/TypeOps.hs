@@ -13,7 +13,7 @@ module Frontend.TypeOps(mapTSpec,
                         isInt, isBool, isPtr, isArray, isStruct, isSequence, isSeqContainer,
                         tdeclGraph) where
 
-import Control.Monad.Error
+import Control.Monad.Except
 import Data.List
 import qualified Data.Map as M
 import qualified Data.Graph.Inductive.Graph as G

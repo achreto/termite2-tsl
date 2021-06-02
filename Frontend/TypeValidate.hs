@@ -4,7 +4,7 @@ module Frontend.TypeValidate (validateTypeSpec,
                      validateTypeSpec2,
                      validateTypeDeps) where
 
-import Control.Monad.Error
+import Control.Monad.Except
 import Data.List
 
 import TSLUtil

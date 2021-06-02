@@ -2,6 +2,8 @@
 
 module TSL2Boogie.Spec2Boogie(spec2Boogie) where
 
+import Prelude hiding ((<>))
+
 import qualified Data.Map             as M
 import Data.Maybe
 import Data.List

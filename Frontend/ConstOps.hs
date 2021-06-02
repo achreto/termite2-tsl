@@ -3,7 +3,7 @@
 module Frontend.ConstOps(validateConst,
                 validateConst2) where
 
-import Control.Monad.Error
+import Control.Monad.Except
 
 import TSLUtil
 import Pos

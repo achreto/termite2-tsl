@@ -39,11 +39,13 @@ module Internal.IExpr(LVal(..),
              arrLengthBits,
              mapExpr) where
 
+import Prelude hiding ((<>))
+
 import Data.Maybe
 import Data.List
 import Data.Bits hiding (isSigned)
 import Text.PrettyPrint
-import Control.Monad.Error
+import Control.Monad.Except
 import qualified Text.Parsec as P
 
 import Util

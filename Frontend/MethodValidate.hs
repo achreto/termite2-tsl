@@ -3,7 +3,7 @@
 module Frontend.MethodValidate(validateMeth) where
 
 import Data.Maybe
-import Control.Monad.Error
+import Control.Monad.Except
 import qualified Data.Graph.Inductive.Graph as G
 import qualified Data.Graph.Inductive.Tree as G
 

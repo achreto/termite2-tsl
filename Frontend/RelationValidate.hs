@@ -1,9 +1,9 @@
-{-# LANGUAGE RecordWildCards, ImplicitParams #-}
+{-# LANGUAGE RecordWildCards, ImplicitParams, FlexibleContexts #-}
 
 module Frontend.RelationValidate(validateRelation,
                         validateApply) where
 
-import Control.Monad.Error
+import Control.Monad.Except
 
 import TSLUtil
 import Pos

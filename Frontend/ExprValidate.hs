@@ -3,7 +3,7 @@
 module Frontend.ExprValidate(validateExpr, validateExpr', validateRegExpr',
                              validateCall, validateApply) where
 
-import Control.Monad.Error
+import Control.Monad.Except
 import Data.Maybe
 
 import Util hiding (name)

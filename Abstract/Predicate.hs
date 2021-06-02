@@ -43,6 +43,8 @@ module Abstract.Predicate(PVarOps,
                  termToExpr,
                  ) where
 
+import Prelude hiding ((<>))
+
 import Text.PrettyPrint
 import Data.List
 import Data.Bits

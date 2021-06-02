@@ -3,6 +3,8 @@ module Abstract.BFormulaTypes (BoolBOp(..),
                       bopToBoolOp,
                       boolOpToBOp) where
 
+import Prelude hiding ((<>))
+
 import Text.PrettyPrint
 
 import Ops

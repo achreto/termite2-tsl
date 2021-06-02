@@ -1,8 +1,8 @@
-{-# LANGUAGE ImplicitParams, RecordWildCards #-}
+{-# LANGUAGE ImplicitParams, RecordWildCards, FlexibleContexts #-}
 
 module Frontend.TransducerOps(txLocalDecls, txLookupPort, txGetPort, txCheckPort) where
 
-import Control.Monad.Error
+import Control.Monad.Except
 import Data.Maybe
 import Data.List
 

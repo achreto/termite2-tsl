@@ -21,7 +21,9 @@ module Frontend.NS(Scope(..),
           Obj(..), objType, objLookup, objGet, isObjMutable, isObjTxInput, isObjTxOutput,
           specNamespace) where
 
-import Control.Monad.Error
+import Prelude hiding ((<>))
+
+import Control.Monad.Except
 import Data.List
 import Data.Maybe
 import Text.PrettyPrint

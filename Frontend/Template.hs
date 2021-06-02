@@ -9,6 +9,7 @@ module Frontend.Template(Template(Template, tmPort, tmDerive, tmInst, tmVar, tmP
                 Derive(Derive,drvTemplate),
                 mergeTemplate) where
 
+import Prelude hiding ((<>))
 import Text.PrettyPrint
 import Data.Maybe
 

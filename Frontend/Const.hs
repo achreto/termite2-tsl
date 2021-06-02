@@ -2,6 +2,7 @@
 
 module Frontend.Const(Const(Const,constVal)) where
 
+import Prelude hiding ((<>))
 import Text.PrettyPrint
 
 import PP

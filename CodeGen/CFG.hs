@@ -6,9 +6,10 @@ module CodeGen.CFG (Step(..),
             derefStep,
             ppStep) where
 
+import Data.Maybe
 import Data.Tuple.Select
 import qualified Data.Map          as M
-import Control.Monad.Error
+import Control.Monad.Except
 import Data.List
 import qualified Text.PrettyPrint  as PP
 

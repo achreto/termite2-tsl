@@ -54,6 +54,7 @@ module Internal.CFA(Statement(..),
            cfaSource,
            cfaSink) where
 
+import Prelude hiding ((<>))
 import qualified Data.Graph.Inductive as G
 import Data.Maybe
 import Data.List

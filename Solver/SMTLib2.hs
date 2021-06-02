@@ -6,12 +6,14 @@ module Solver.SMTLib2(SMT2Config,
                z3Config,
                newSMTLib2Solver) where
 
+import Prelude hiding ((<>))
+
 import qualified Text.Parsec as P
 import Text.PrettyPrint
 import System.IO.Unsafe
 import System.Process
 import System.Exit
-import Control.Monad.Error
+import Control.Monad.Except
 import Control.Applicative hiding (empty)
 import Data.List
 import Data.Maybe

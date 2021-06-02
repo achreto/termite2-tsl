@@ -10,6 +10,7 @@ module Internal.IType(Field(..),
              isScalar,
              Enumeration(..)) where
 
+import Prelude hiding ((<>))
 import Text.PrettyPrint
 
 import PP
