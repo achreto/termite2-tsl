@@ -356,7 +356,7 @@ mkBranches' strategy goal regions set = do
          Nothing   -> do $d deref set
                          return $ BranchStuck "no winning move found"
          Just cond -> do condset  <- $r2 band set cond
-                         Just act <- pickLabel ops sd strategy condset
+                         act <- pickLabel ops sd strategy condset
                          $d deref condset
                          set'     <- $r2 band set (bnot cond)
                          cond'    <- condRemoveSpecialVars cond set
@@ -364,9 +364,9 @@ mkBranches' strategy goal regions set = do
                          if set' == bfalse
                             then do $d deref set 
                                     $d deref set'
-                                    return $ BranchAction cond' act
+                                    return $ BranchAction cond' (fromJust act)
                             else do branch' <- mkBranches strategy goal regions set'
-                                    return $ BranchITE (cond', set) act branch'
+                                    return $ BranchITE (cond', set) (fromJust act) branch'
 
 -- Decomposes cond into prime implicants and converts it to a boolean expression
 mkCondition :: (RM s u t, ?spec::Spec, ?m::C.DDManager s u, ?db::DB s u AbsVar AbsVar) => (DDNode s u, DDNode s u) -> t (ST s) [I.Expr]

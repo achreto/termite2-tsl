@@ -104,7 +104,8 @@ exprRecomputedLocM l e = do
     case M.lookup l m of
          Nothing -> do res <- if' (null $ G.pre ?cfa l)                                  (return l) $
                               if' (any (isExprRecomputedByTran e . snd) (G.lpre ?cfa l)) (return l) $
-                              do (pre0:pres) <- mapM (\l' -> exprRecomputedLocM l' e) $ G.pre ?cfa l
+                              do ls <- mapM (\l' -> exprRecomputedLocM l' e) $ G.pre ?cfa l
+                                 let (pre0:pres)  = ls
                                  if' (all (== pre0) pres) (return pre0) (return l)
                        modify (\m' -> M.insert l res m')
                        return res

@@ -154,7 +154,10 @@ statToCFA' before _ (SReturn _ _ rval) = do
          Nothing -> ctxInsTrans before ret I.TranReturn
          Just v  -> case mlhs of
                          Nothing  -> ctxInsTrans before ret I.TranReturn
-                         Just lhs -> do sc@(ScopeMethod _ m) <- gets ctxScope
+                         Just lhs -> do
+                            --sc@(ScopeMethod _ m) <- gets ctxScope
+                            sc <- gets ctxScope
+                            let (ScopeMethod _ m) = sc
                                         let t = fromJust $ methRettyp m
                                         vi <- exprToIExprs v t
                                         let asns = map I.TranStat
