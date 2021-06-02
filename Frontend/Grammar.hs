@@ -572,18 +572,18 @@ parseHex = (fst . head . readHex) <$> many1 hexDigit
 mkLit :: Maybe Int -> Bool -> Radix -> Integer -> ParsecT s u m Expr
 mkLit Nothing  False Rad10 v                       = return $ ELit nopos (msb v + 1) False Rad10 v
 mkLit Nothing  False r     v                       = return $ ELit nopos (msb v + 1) False r     v
-mkLit Nothing  True  r     v                       = fail "Explicit width required for signed literal"
-mkLit (Just w) False r     v | w == 0              = fail "Unsigned literals must have width >0"
+mkLit Nothing  True  r     v                       = error "Explicit width required for signed literal"
+mkLit (Just w) False r     v | w == 0              = error "Unsigned literals must have width >0"
                              | msb v < w           = return $ ELit nopos w False r v
-                             | otherwise           = fail "Value exceeds specified width"
-mkLit (Just w) True  Rad10 v | w < 2               = fail "Signed literals must have width >1"
+                             | otherwise           = error "Value exceeds specified width"
+mkLit (Just w) True  Rad10 v | w < 2               = error "Signed literals must have width >1"
                              | (msb $ abs v) < w-1 = return $ ELit nopos w True Rad10 v
-                             | otherwise           = fail "Value exceeds specified width"
-mkLit (Just w) True  r     v | w < 2               = fail "Signed literals must have width >1"
+                             | otherwise           = error "Value exceeds specified width"
+mkLit (Just w) True  r     v | w < 2               = error "Signed literals must have width >1"
                              | msb v == w - 1      = do let v' = (foldl' (\_v i -> complementBit _v i) v [0..w-1]) + 1
                                                         return $ ELit nopos w True r (-v')
                              | msb v < w - 1       = return $ ELit nopos w True r v
-                             | otherwise           = fail "Value exceeds specified width"
+                             | otherwise           = error "Value exceeds specified width"
 
 expr' True  = expr
 expr' False = detexpr

@@ -26,7 +26,7 @@ parseTSL :: FilePath -> [FilePath] -> Bool -> Bool -> IO (M.Map FilePath [SpecIt
 parseTSL f dirs dobuiltins musthavemain = do
     modules <- parseTSL' M.empty f dirs
     let spec = mkSpec $ concat $ snd $ unzip $ M.toList modules
-    when (musthavemain && (isNothing $ find ((== "main")  . sname) $ specTemplate spec)) $ fail "template main not found"
+    when (musthavemain && (isNothing $ find ((== "main")  . sname) $ specTemplate spec)) $ error "template main not found"
     -- Parse builtins
     builtins <- parseBuiltins
     return (modules, if' dobuiltins (mergeSpecs spec builtins) spec)
@@ -36,7 +36,7 @@ parseTSL' modules f dirs = do
     tsl <- readFile f
     --putStr tsl
     spec <- case parse grammar f tsl of
-                 Left e   -> fail $ show e
+                 Left e   -> error $ show e
                  Right st -> return st
     createDirectoryIfMissing False "tmp"
     writeFile ("tmp/" ++ f ++ ".out") (P.render $ pp spec)
@@ -52,7 +52,7 @@ parseBuiltins = do
     -- write it to file system so that we can show it in the debugger
     writeFile builtinsPath builtinsStr
     (liftM mkSpec) $ case parse grammar builtinsPath builtinsStr of
-                          Left  e  -> fail $ show e
+                          Left  e  -> error $ show e
                           Right st -> return st
 
 findImport :: FilePath -> [FilePath] -> IO String
@@ -60,7 +60,7 @@ findImport f dirs = do
     let dirs' = "":(map (++"/") dirs)
     match <- filterM (\d -> doesFileExist (d ++ f)) dirs'
     case match of
-         [] -> fail $ "File not found: " ++ f
+         [] -> error $ "File not found: " ++ f
          _  -> return $ head match ++ f
 
 -- Extract the list of imports from parsed TSL spec
