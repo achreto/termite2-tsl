@@ -167,7 +167,11 @@ statToCFA' before _ (SReturn _ _ rval) = do
                                         ctxInsTrans aftargs ret I.TranReturn
 
 statToCFA' before after s@(SPar _ _ ps) = do
-    Just (EPIDProc pid) <- gets ctxEPID
+    -- Just (EPIDProc pid) <- gets ctxEPID
+    epid <- gets ctxEPID
+    let (EPIDProc pid) = case epid of
+            Nothing -> error $ "expected Just, was Nothing"
+            Just epid2 -> epid2
     -- child process pids
     let pids  = map (childPID pid . sname . fromJust . stLab) ps
     -- enable child processes

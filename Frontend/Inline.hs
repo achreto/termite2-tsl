@@ -508,7 +508,12 @@ ctxFinal loc = do
 
 ctxUContInsertSuffixes :: State CFACtx ()
 ctxUContInsertSuffixes = do
-    Just (EPIDProc pid) <- gets ctxEPID
+    -- Just (EPIDProc pid) <- gets ctxEPID
+    epid <- gets ctxEPID
+    let (EPIDProc pid) = case epid of
+            Nothing -> error $ "expected Just, was Nothing"
+            Just epid2 -> epid2
+
     cfa0   <- gets ctxCFA
     modify $ \ctx -> ctx {ctxCFA = foldl' (insertSuffix pid) cfa0 (I.cfaDelayLocs cfa0)}
     cfa1   <- gets ctxCFA
