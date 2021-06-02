@@ -158,13 +158,13 @@ statToCFA' before _ (SReturn _ _ rval) = do
                             --sc@(ScopeMethod _ m) <- gets ctxScope
                             sc <- gets ctxScope
                             let (ScopeMethod _ m) = sc
-                                        let t = fromJust $ methRettyp m
-                                        vi <- exprToIExprs v t
-                                        let asns = map I.TranStat
-                                                   $ zipWith I.SAssign (I.exprScalars lhs (mkType $ Type sc t))
-                                                                       (concatMap (uncurry I.exprScalars) vi)
-                                        aftargs <- ctxInsTransMany' before asns
-                                        ctxInsTrans aftargs ret I.TranReturn
+                            let t = fromJust $ methRettyp m
+                            vi <- exprToIExprs v t
+                            let asns = map I.TranStat
+                                        $ zipWith I.SAssign (I.exprScalars lhs (mkType $ Type sc t))
+                                                            (concatMap (uncurry I.exprScalars) vi)
+                            aftargs <- ctxInsTransMany' before asns
+                            ctxInsTrans aftargs ret I.TranReturn
 
 statToCFA' before after s@(SPar _ _ ps) = do
     -- Just (EPIDProc pid) <- gets ctxEPID
